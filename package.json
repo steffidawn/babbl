@@ -1,0 +1,23 @@
+{
+  "name": "babbl",
+  "version": "1.0.0",
+  "description": "socket.io chat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steffidawn/babbl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steffidawn/babbl/issues"
+  },
+  "homepage": "https://github.com/steffidawn/babbl#readme",
+  "dependencies": {
+    "mongodb": "^2.2.33",
+    "socket.io": "^2.0.4"
+  }
+}
