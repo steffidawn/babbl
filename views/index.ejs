@@ -3,26 +3,26 @@
 <ul id="last-resort"></ul>
 
 <div class='container'>
+  <h1 class='text-center'>
+    <img src='./img/babbl.png' alt='babbl' width='350'/>
+  </h1>
   <div class='row'>
     <div class='col s12'>
-      <h1 class='text-center'>
-        babbl
-      </h1>
       <div id='status'></div>
       <div class='chat'>
         <form method='POST' action='/test'>
           <input type='text' id='username' placeholder='Enter your babbl name' name='name'/>
           <br>
-          <div class="col s12 m5">
+          <div class="col s12 m6">
             <div class="card-panel" id='messages'></div>
           </div>
-          <div class="col s12 m5">
+          <div class="col s12 m6">
             <div id='canvasContainer'></div>
           </div>
           <br>
-          <textarea class='materialize-textarea' id='textarea' placeholder='Start to babbl!' name='message'></textarea>
-          <input type='submit' id='submitmsg' value='babbl' />
-          <button id='clearchat'>Clear Chat</button>
+          <textarea class='materialize-textarea' id='textarea' placeholder='Start to babbl!' name='message'></textarea><input type='submit' id='submitmsg' value='babbl' />
+
+          <!-- <button id='clearchat'>Clear Chat</button> -->
         </form>
     </div>
   </div>

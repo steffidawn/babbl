@@ -43,18 +43,12 @@ if (socket !== undefined) {
     }
   });
   textarea.addEventListener('keydown', function(event) {
-    if(event.which === 13 && event.shiftKey === false) {
+    if(event.which === 13) {
       socket.emit('input', {
         name: username.value,
         message:textarea.value
       });
       event.preventDefault();
     }
-  })
-  clearchat.addEventListener('click', function() {
-    socket.emit('clear');
-  });
-  socket.on('cleared', function() {
-    messages.textContent = '';
   });
 }

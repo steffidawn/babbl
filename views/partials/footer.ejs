@@ -4,6 +4,12 @@ crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
   <script>
+    $('#submitmsg').keypress(function(event) {
+      if (event.which == 13) {
+        event.preventDefault();
+        $('form').submit();
+      }
+    });
     $(function () {
       var socket = io();
       $('form').submit(function(){
@@ -11,19 +17,12 @@ crossorigin="anonymous"></script>
           name: $('#username').val(),
           message: $('#textarea').val()
         }
-        ///this below line
-        // socket.emit('chat message', $('#textarea').val());
         socket.emit('chat message', person);
         $('#textarea').val();
         return false;
       });
-
       socket.on('chat message', function(data){
-        console.log("This is working, dawg")
-        // $('#messages').append($('<li>').text(data.name + ':' + data.message));
         $('#messages').append($('<li>').text(data.name + ': ' + data.message));
-        // $('#messages').append($('<li>').text(data));
-
       });
     });
   </script>

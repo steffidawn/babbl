@@ -1,8 +1,28 @@
-#messages {
-  height: 400px;
-  width: 400px;
+form {
+  font-size: 30px;
 }
 
-li {
-    list-style-type: none;
+#messages {
+  height: 500px;
+  width: 500px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
+
+#messages li {
+  padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+  background: rgba(130, 120, 200, .3);
+}
+
+#submitmsg {
+  font-family: Arial, sans-serif;
+  color: white;
+  background-color: rgb(130, 120, 200);
+}
+/*li {
+    list-style-type: none;
+}*/
