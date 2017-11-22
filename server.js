@@ -17,11 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
-
-//Listening to port 3000
-// http.listen(3000, function(){
-//   console.log('listening on Port 3000');
-// });
+// mongoose.connect('mongodb://127.0.0.1/mongochat', {useMongoClient: true});
 
 io.on('connection', function(socket) {
   console.log('a user connected');
@@ -33,6 +29,13 @@ io.on('connection', function(socket) {
     // io.sockets.emit('mouse', data);
     console.log(data);
   }
+  socket.on('input', function(person){
+      console.log('message: ', person);
+      var data = {};
+      data.message = person.message;
+      data.name = person.name;
+      io.emit('chat message', data);
+    });
 });
 
 //Connecting to mongo
@@ -56,15 +59,15 @@ app.post('/test', function(req, res) {
 });
 
 //Connecting to socket.io
-io.on('connection', function(socket) {
-  socket.on('chat message', function(person){
-    console.log('message: ', person);
-    var data = {};
-    data.message = person.message;
-    data.name = person.name;
-    io.emit('chat message', data);
-
-  });
+// io.on('connection', function(socket) {
+//   socket.on('chat message', function(person){
+//     console.log('message: ', person);
+//     var data = {};
+//     data.message = person.message;
+//     data.name = person.name;
+//     io.emit('chat message', data);
+//
+//   });
 // io.on('connection', function(socket) {
 //   socket.on('chat message', function(person){
 //     console.log('message: ' + person);
@@ -113,4 +116,8 @@ io.on('connection', function(socket) {
   //     socket.emit('cleared');
   //   });
   // });
+//});
+// Listening to port 3000
+http.listen(3000, function(){
+  console.log('listening on Port 3000');
 });

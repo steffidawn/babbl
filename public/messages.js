@@ -29,7 +29,7 @@ if (socket !== undefined) {
     if(data.length) {
       for(var i = 0; i < data.length; i++) {
         var message = document.createElement('div');
-        message.setAttribute('class', 'chatmessage');
+        message.setAttribute('class', 'chat message');
         message.textContent = data[i].name + ": " + data[i].message;
         messages.appendChild(message);
         messages.insertBefore(message, messages.firstChild);
@@ -43,6 +43,7 @@ if (socket !== undefined) {
     }
   });
   textarea.addEventListener('keydown', function(event) {
+    console.log("this is where we emit")
     if(event.which === 13) {
       socket.emit('input', {
         name: username.value,
@@ -50,5 +51,12 @@ if (socket !== undefined) {
       });
       event.preventDefault();
     }
+  });
+  submitmsg.addEventListener('click', function(event) {
+      socket.emit('input', {
+        name: username.value,
+        message:textarea.value
+      });
+      event.preventDefault();
   });
 }
