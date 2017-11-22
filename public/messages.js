@@ -20,8 +20,8 @@ var setStatus = function(s) {
   }
 }
 //Connecting to socket.io
-var socket = io.connect('http://babblchat.herokuapp.com:3000');
-
+var socket = io();
+// var socket = io.connect('http://babblchat.herokuapp.com:3000');
 
 if (socket !== undefined) {
   console.log('socket is working as designed.');
@@ -47,7 +47,7 @@ if (socket !== undefined) {
     if(event.which === 13) {
       socket.emit('input', {
         name: username.value,
-        message:textarea.value
+        message: textarea.value
       });
       event.preventDefault();
     }
