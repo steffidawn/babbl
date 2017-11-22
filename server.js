@@ -36,14 +36,14 @@ io.on('connection', function(socket) {
 });
 
 //Connecting to mongo
-var db = null;
-mongo.connect('mongodb://127.0.0.1/mongochat', function(err, db){
-    if(err){
-        throw err;
-    }
-    console.log('connected to mongo')
-    db = db;
-});
+// var db = null;
+// mongo.connect('mongodb://127.0.0.1/mongochat', function(err, db){
+//     if(err){
+//         throw err;
+//     }
+//     console.log('connected to mongo')
+//     db = db;
+// });
 
 app.get('/', function(req, res) {
   res.render('index');
