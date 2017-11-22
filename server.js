@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mongochat');
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 
 //Listening to port 3000
 http.listen(3000, function(){
